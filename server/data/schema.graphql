@@ -1,0 +1,37 @@
+ type Book {
+        id: ID
+        title: String,
+        author: String,
+        score: Float,
+        count: Int,
+        pages: Int,
+        image: String,
+        price: String,
+        description: String,
+        isFavourite: Boolean,
+        type: String
+    }
+
+    type Query {
+        getBook(id: ID): Book
+        getBooks(limite: Int): [Book]
+        hello: String
+    }
+
+    input BookInput {
+        id: ID
+        title: String,
+        author: String,
+        score: Float,
+        image: String,
+        count: Int,
+        pages: Int,
+        price: String,
+        description: String,
+        isFavourite: Boolean,
+        type: String
+    }
+
+    type Mutation {
+        updateBook(input: BookInput): Book
+    }
