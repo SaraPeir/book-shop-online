@@ -3,6 +3,7 @@ import './index.scss';
 import {GET_BOOKS} from './graphql/queries.js';
 import { gql, useQuery } from '@apollo/client';
 import Carousel from './components/Carousel';
+import CarouselContext from './components/CarouselContext';
 
 const App = () => {
   const { loading, error, data } = useQuery(GET_BOOKS);
@@ -13,7 +14,9 @@ const App = () => {
   return (
     <div className="App">
       <p className="main-style">Title</p>
-      <Carousel data={data} />
+      <CarouselContext.Provider value={{data}}>
+        <Carousel />
+      </CarouselContext.Provider>
     </div>
   );
 }

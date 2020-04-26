@@ -1,20 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { CarouselProvider, ButtonBack, ButtonNext, Slider } from 'pure-react-carousel';
 import './Carousel.css';
 import CarouselCard from '../CarouselCard';
+import CarouselContext from '../CarouselContext';
 
-const Carousel = (props) => {
+const Carousel = () => {
+  const booksData = useContext(CarouselContext);
+  console.log('booksData', booksData);
+
       return (
         <div className={"carousel-container"}>
           <CarouselProvider
             naturalSlideWidth={2}
-            naturalSlideHeight={1}
+            naturalSlideHeight={5}
             totalSlides={10}
-            visibleSlides={2}
+            visibleSlides={3}
             // hasMasterSpinner
           >
             <Slider className={"border"}>
-              {props.data.getBooks.length && props.data.getBooks.map(book =>  <CarouselCard image = {book.image} width={100} />)}
+              {booksData.data.getBooks.length && booksData.data.getBooks.map(book =>  <CarouselCard key={book.id} image = {book.image} author={book.author} title={book.title} price={book.price}  />)}
             </Slider>
             <ButtonBack>Back</ButtonBack>
             <ButtonNext>Next</ButtonNext>
@@ -24,3 +28,5 @@ const Carousel = (props) => {
   }
 
   export default Carousel;
+
+  // width={100}

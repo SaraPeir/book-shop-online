@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider  } from '@apollo/client';
 
 const client = new ApolloClient({
