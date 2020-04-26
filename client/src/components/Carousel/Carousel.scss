@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+
+p.main-style {
+    color: $primary-color;
+    font-family: $primary-typo-family;
+    font-size: $titles-size-desktop;
+}
+
+
+
+.border {
+    border: 1px solid red;
+}
+
+.carousel-container {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { CarouselProvider, ButtonBack, ButtonNext, Slider } from 'pure-react-carousel';
-import './Carousel.css';
+import './Carousel.scss';
 import CarouselCard from '../CarouselCard';
 import CarouselContext from '../CarouselContext';
 
@@ -10,11 +10,13 @@ const Carousel = () => {
 
       return (
         <div className={"carousel-container"}>
+          <p className="main-style">Libri</p>
           <CarouselProvider
-            naturalSlideWidth={2}
-            naturalSlideHeight={5}
+            naturalSlideWidth={1}
+            naturalSlideHeight={3}
             totalSlides={10}
             visibleSlides={3}
+            isIntrinsicHeight={true}
             // hasMasterSpinner
           >
             <Slider className={"border"}>

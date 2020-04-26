@@ -1,0 +1,63 @@
+@import "../../variables.scss";
+
+.img-container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid green;
+    height: 250px;
+    position: relative;
+}
+
+img{
+    max-height: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+div.card-title, div.card-subtitle  {
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+div.card-title {
+    @include title-typo;
+    background-color: #DA70D6;
+    padding: 0 10px;
+}
+
+div.card-subtitle {
+    font-style: italic;
+    font-family: $primary-typo-family;
+}
+
+.btn-container, .price-container {
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+    font-family: $primary-typo-family;
+    font-weight: 700;
+}
+
+.icon-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #DA70D6;
+    padding: 5px;
+    cursor: pointer;
+    fill: #DA70D6;
+}
+
+.filled-icon {
+    fill: red;
+}
+
+
+
+
+

@@ -1,1 +1,11 @@
-$primary-color: red;
+$primary-color: #6c757d;
+$secondary-color: #fff;
+$primary-typo-family: 'Open Sans Condensed', sans-serif;
+$titles-size-desktop: 24px;
+
+@mixin title-typo {
+    text-transform: uppercase;
+    color: $secondary-color;
+    font-weight: 700;
+    font-family: $primary-typo-family;
+}

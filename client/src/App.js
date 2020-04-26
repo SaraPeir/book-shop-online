@@ -13,7 +13,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <p className="main-style">Title</p>
       <CarouselContext.Provider value={{data}}>
         <Carousel />
       </CarouselContext.Provider>
