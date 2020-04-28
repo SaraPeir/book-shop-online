@@ -19,17 +19,8 @@
     }
 
     input BookInput {
-        id: ID
-        title: String,
-        author: String,
-        score: Float,
-        image: String,
-        count: Int,
-        pages: Int,
-        price: String,
-        description: String,
-        isFavourite: Boolean,
-        type: String
+        id: ID,
+        isFavourite: Boolean
     }
 
     type Mutation {

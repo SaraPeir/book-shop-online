@@ -20,7 +20,7 @@ const Carousel = () => {
             // hasMasterSpinner
           >
             <Slider className={"border"}>
-              {booksData.data.getBooks.length && booksData.data.getBooks.map(book =>  <CarouselCard key={book.id} image = {book.image} author={book.author} title={book.title} price={book.price}  />)}
+              {booksData.data.getBooks.length && booksData.data.getBooks.map((book, id) =>  <CarouselCard key={id} updateBooks={() => console.log('updateBooks')} isFavourite={book.isFavourite} id={book.id} image = {book.image} author={book.author} title={book.title} price={book.price}  />)}
             </Slider>
             <ButtonBack>Back</ButtonBack>
             <ButtonNext>Next</ButtonNext>

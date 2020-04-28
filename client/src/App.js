@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import {GET_BOOKS} from './graphql/queries.js';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Carousel from './components/Carousel';
 import CarouselContext from './components/CarouselContext';
 
