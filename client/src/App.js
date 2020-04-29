@@ -6,7 +6,9 @@ import Carousel from './components/Carousel';
 import CarouselContext from './components/CarouselContext';
 
 const App = () => {
-  const { loading, error, data } = useQuery(GET_BOOKS);
+  const { loading, error, data } = useQuery(GET_BOOKS, {
+    fetchPolicy: 'cache-first' // default
+  });
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;

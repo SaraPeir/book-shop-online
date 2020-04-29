@@ -11,6 +11,11 @@ import {
 import {Heart} from '../../images/icons/Heart.js';
 import {UPDATE_BOOKS} from '../../graphql/mutations';
 
+// onCompleted usalo per creare un toaster quando l'operazione di mtation è completa:
+// onCompleted
+
+// añadir lazyloading
+
 const CarouselCard = (props) => {
   const [updateBooks] = useMutation(
       UPDATE_BOOKS
