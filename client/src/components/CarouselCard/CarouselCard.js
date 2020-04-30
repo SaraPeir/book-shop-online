@@ -8,7 +8,7 @@ import {
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
 
-import {Heart} from '../../images/icons/Heart.js';
+import {Heart} from '../../images/icons/index.js';
 import {UPDATE_BOOKS} from '../../graphql/mutations';
 
 // onCompleted usalo per creare un toaster quando l'operazione di mtation è completa:
@@ -22,7 +22,7 @@ const CarouselCard = (props) => {
     );
 
       return (
-          <Slide className={"border"} index={0}>
+          <Slide index={props.id}>
             <Card>
                 <div className={"img-container"}>
                 <div className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` } onClick={() => {

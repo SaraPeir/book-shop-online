@@ -1,13 +1,17 @@
 @import "../../variables.scss";
 
 .img-container {
-    width: 70%;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid green;
-    height: 250px;
+    height: 160px;
     position: relative;
 }
+
+// reactstrap styles overlapping
+// img.card-img {
+//     width: 100%;
+// }
 
 img{
     max-height: 100%;
@@ -25,7 +29,7 @@ div.card-title, div.card-subtitle  {
 
 div.card-title {
     @include title-typo;
-    background-color: #DA70D6;
+    background-color: $theme-color;
     padding: 0 10px;
 }
 
@@ -47,10 +51,10 @@ div.card-subtitle {
     bottom: 0;
     right: 0;
     z-index: 100;
-    background-color: #DA70D6;
+    background-color: $theme-color;
     padding: 5px;
     cursor: pointer;
-    fill: #DA70D6;
+    fill: $theme-color;
 }
 
 .filled-icon {

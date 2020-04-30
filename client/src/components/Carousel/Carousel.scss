@@ -7,15 +7,41 @@ p.main-style {
 }
 
 
-
-.border {
-    border: 1px solid red;
-}
-
 .carousel-container {
+    position: relative;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
 
+.button {
+    opacity: 0.5;
+    padding: auto;
+    border: none;
+    height: 35px;
+    width: 35px;
+    background: none;
+    fill: $theme-color;
+    stroke: #fff; 
+    transition: 0.3s;
+}
+
+.button:hover {
+    opacity: 1;
+}
+
+.button-left {
+    position: absolute;
+    top: 35%;
+}
+
+.button-right {
+    position: absolute;
+    top: 35%;
+    right: 0;
+}
+
+.button-disabled {
+    background-color: red;
+}
 
