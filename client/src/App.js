@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <CarouselContext.Provider value={{data}}>
-        <Carousel />
+        <Carousel title={'I più apprezzati del momento'} />
       </CarouselContext.Provider>
     </div>
   );

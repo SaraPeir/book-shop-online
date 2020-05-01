@@ -19,7 +19,12 @@ const booksSchema = new mongoose.Schema({
 // The next step is compiling our schema into a Model (a  model is a class with which we construct documents):
 const Books = mongoose.model('books', booksSchema);
 
+// para evitar que , cada vez que se lanze el server, se añaden los datos a los existentes ya.
+// lo existentes se borran y se ponen los nuevos
+Books.deleteMany({}, () => console.log('Documentos removidos'))
+
 Books.create(booksCollection, function (err) {
+    console.log('Documentos actualizados')
     if (err) {
         console.log('Hubo un error')
     } 

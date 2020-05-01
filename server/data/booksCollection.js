@@ -101,7 +101,7 @@ export const booksCollection = [
         "score" : 4.5,
         "count" : 2,
         "pages" : 180,
-        "price" : "€ 15",
+        "price" : "€ 15,00",
         "image" : "https://static.lafeltrinelli.it/static/images-1/xl/612/10041612.jpg",
         "description" : "In Giappone esiste una caffetteria speciale. Su di essa girano mille leggende. Si narra che, bevendo il caffè, sia possibile rivivere un momento della propria vita in cui si è fatta la scelta sbagliata, si è detta l'unica parola che era meglio non pronunciare, si è lasciata andare la persona che non doveva sfuggire. Si narra che facendo quel piccolo gesto tutto possa cambiare. Ma c'è una regola da rispettare: non bisogna, per nessuna ragione, finire il caffè dopo che si è raffreddato. Non tutti hanno il coraggio di entrare nella caffetteria. Eppure qualcuno decide di sfidare il destino. Qualcuno si siede su quella sedia con davanti una tazza fumante. C'è Fumiko, che non ha trattenuto il ragazzo che ama; Kothake, che insieme ai ricordi di suo marito crede di aver perso anche sé stessa; Hirai, che non è mai stata sincera fino in fondo con sua sorella. E infine c'è Kei, che cerca tutta la forza dentro di lei per diventare una buona madre. Ognuno ha un rimpianto. Ognuno ha un ricordo che riaffiora. Ma tutti scoprono che non è importante il passato. Perché non si può cambiare. Ciò che conta è il presente. Quello è nelle proprie mani. Ogni cosa si può ancora decidere, scegliere, fare nel modo giusto. La vita come il caffè va gustata sorso dopo sorso, cogliendone ogni attimo.",
         "isFavourite" : false,

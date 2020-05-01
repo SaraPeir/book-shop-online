@@ -5,14 +5,14 @@ import CarouselCard from '../CarouselCard';
 import CarouselContext from '../CarouselContext';
 import {RightArrow, LeftArrow} from '../../images/icons/index.js';
 
-const Carousel = () => {
+const Carousel = (props) => {
   const booksData = useContext(CarouselContext);
   console.log('booksData', booksData);
   const {innerWidth} = window;
 
       return (
         <div className={"carousel-container"}>
-          <p className="main-style">Libri</p>
+          <p className="main-style">{props.title}</p>
           <CarouselProvider
             naturalSlideWidth={1}
             naturalSlideHeight={3}
