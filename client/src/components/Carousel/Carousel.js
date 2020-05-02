@@ -11,6 +11,7 @@ const Carousel = (props) => {
   const {innerWidth} = window;
 
       return (
+        props.data.length ?
         <div className={"carousel-container"}>
           <p className="main-style">{props.title}</p>
           <CarouselProvider
@@ -23,12 +24,15 @@ const Carousel = (props) => {
             // hasMasterSpinner
           >
            <Slider className={"border"}>
-              {booksData.data.getBooks.length && booksData.data.getBooks.map((book, id) =>  <CarouselCard key={id} updateBooks={() => console.log('updateBooks')} isFavourite={book.isFavourite} id={book.id} image = {book.image} author={book.author} title={book.title} price={book.price}  />)}
+              {props.data.map((book, id) =>  
+                <CarouselCard key={id} isForFavourites={false} updateBooks={() => console.log('updateBooks')} isFavourite={book.isFavourite} id={book.id} image = {book.image} author={book.author} title={book.title} price={book.price}  />
+              )}
             </Slider>
             {innerWidth > 768 && <ButtonBack id="button-disabled" className="button button-left">{LeftArrow}</ButtonBack>} 
             {innerWidth > 768 && <ButtonNext className="button button-right">{RightArrow}</ButtonNext>} 
           </CarouselProvider>
         </div>
+        : null
       );
   }
 

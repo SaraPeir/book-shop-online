@@ -24,8 +24,9 @@ const CarouselCard = (props) => {
       return (
           <Slide index={props.id}>
             <Card>
-                <div className={"img-container"}>
-                <div className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` } onClick={() => {
+              {props.isForFavourites && 
+                <div className="close-button-icon-container"
+                onClick={() => {
                   props.updateBooks(); // a lo mejor para meter un toaster
                   updateBooks({
                     variables: {
@@ -33,7 +34,24 @@ const CarouselCard = (props) => {
                     isFavourite: !props.isFavourite
                   } 
                 })
-                }}>{Heart}</div>
+                }} >
+                  X
+                </div>
+                }
+                <div className={"img-container"}>
+                { !props.isForFavourites && 
+                  <div className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` } onClick={() => {
+                    props.updateBooks(); // a lo mejor para meter un toaster
+                    updateBooks({
+                      variables: {
+                      id: props.id, 
+                      isFavourite: !props.isFavourite
+                    } 
+                  })
+                  }}>
+                    {Heart}
+                  </div>
+              }
                     <CardImg src={props.image} alt="Card image cap" />
                 </div>
                 <CardBody>
