@@ -3,7 +3,7 @@ import './index.scss';
 import {GET_BOOKS} from './graphql/queries.js';
 import { useQuery } from '@apollo/client';
 import BooksCarousel from './components/BooksCarousel';
-import Tripboard from './components/Favourites';
+import Favourites from './components/Favourites';
 import CarouselContext from './components/CarouselContext';
 
 const App = () => {
@@ -17,6 +17,7 @@ const App = () => {
   return (
     <div className="App">
       <CarouselContext.Provider value={{data}}>
+        <Favourites title={'I tuoi preferiti'} />
         <BooksCarousel title={'I più apprezzati del momento'} />
       </CarouselContext.Provider>
     </div>

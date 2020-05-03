@@ -3,10 +3,7 @@ import { Slide } from 'pure-react-carousel';
 import { useMutation } from '@apollo/client';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import './CarouselCard.scss';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
-  } from 'reactstrap';
+import ShoppingCard from '../ShoppingCard';
 
 import {Heart} from '../../images/icons/index.js';
 import {UPDATE_BOOKS} from '../../graphql/mutations';
@@ -23,49 +20,7 @@ const CarouselCard = (props) => {
 
       return (
           <Slide index={props.id}>
-            <Card>
-              {props.isForFavourites && 
-                <div className="close-button-icon-container"
-                onClick={() => {
-                  props.updateBooks(); // a lo mejor para meter un toaster
-                  updateBooks({
-                    variables: {
-                    id: props.id, 
-                    isFavourite: !props.isFavourite
-                  } 
-                })
-                }} >
-                  X
-                </div>
-                }
-                <div className={"img-container"}>
-                { !props.isForFavourites && 
-                  <div className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` } onClick={() => {
-                    props.updateBooks(); // a lo mejor para meter un toaster
-                    updateBooks({
-                      variables: {
-                      id: props.id, 
-                      isFavourite: !props.isFavourite
-                    } 
-                  })
-                  }}>
-                    {Heart}
-                  </div>
-              }
-                    <CardImg src={props.image} alt="Card image cap" />
-                </div>
-                <CardBody>
-                    <CardTitle>{props.title}</CardTitle>
-                    <CardSubtitle>{props.author}</CardSubtitle>
-                    
-                    <div className={"price-container"}>
-                    <CardText>{props.price}</CardText>
-                    </div>
-                    <div className={"btn-container"}>
-                      <Button>Dettagli</Button>
-                    </div>
-                </CardBody>
-            </Card> 
+            <ShoppingCard {...props} />
           </Slide>
       );
   }

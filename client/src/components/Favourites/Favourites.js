@@ -1,9 +1,11 @@
 import React, {useContext} from 'react';
 import '../Carousel/Carousel.scss';
-import CarouselCard from '../CarouselCard';
+import './Favourites.scss';
+import { Container, Row, Col } from 'reactstrap';
+import ShoppingCard from '../ShoppingCard';
 import CarouselContext from '../CarouselContext';
 
-const Tripboard = (props) => {
+const Favourites = (props) => {
   const booksData = useContext(CarouselContext);
   const favourites = booksData.data.getBooks.filter(book => book.isFavourite);
 
@@ -12,16 +14,30 @@ const Tripboard = (props) => {
   console.log('booksData', booksData);
 
       return (
-        <div className={"carousel-container"}>
+        <Container className="favourites-container">
           <p className="main-style">{props.title}</p>
           
-           <div className={"border"}>
+           <Row xs="1" sm="2" md="3">
               {booksData.data.getBooks.map((book, id) =>  
-                book.isFavourite && <CarouselCard key={id} updateBooks={() => console.log('updateBooks')} isFavourite={book.isFavourite} id={book.id} image = {book.image} author={book.author} title={book.title} price={book.price}  />
+                book.isFavourite && 
+                <Col>
+                  <ShoppingCard 
+                    key={id} 
+                    cardStyle={'card-style'}
+                    updateBooks={() => console.log('updateBooks')} 
+                    isFavourite={book.isFavourite} 
+                    id={book.id} 
+                    image = {book.image} 
+                    author={book.author} 
+                    title={book.title} 
+                    price={book.price} 
+                    isForFavourites= {true}
+                  />
+                  </Col>
               )}
-            </div>
-        </div>
+            </Row>
+        </Container>
       );
   }
 
-  export default Tripboard;
+  export default Favourites;

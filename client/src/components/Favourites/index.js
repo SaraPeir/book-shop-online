@@ -1,3 +1,3 @@
-import Tripboard from './Favourites';
+import Favourites from './Favourites';
 
-export default Tripboard;
+export default Favourites;

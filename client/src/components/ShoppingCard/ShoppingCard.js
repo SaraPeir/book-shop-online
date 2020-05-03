@@ -13,39 +13,41 @@ import {UPDATE_BOOKS} from '../../graphql/mutations';
 
 // añadir lazyloading
 
-const Card = (props) => {
+const ShoppingCard = (props) => {
   const [updateBooks] = useMutation(
       UPDATE_BOOKS
     );
 
       return (
-        <Card>
+        <Card className={props.cardStyle}>
             {props.isForFavourites && 
             <div className="close-button-icon-container"
             onClick={() => {
                 props.updateBooks(); // a lo mejor para meter un toaster
                 updateBooks({
-                variables: {
-                id: props.id, 
-                isFavourite: !props.isFavourite
-                } 
-            })
+                    variables: {
+                        id: props.id, 
+                        isFavourite: !props.isFavourite
+                    } 
+                })
             }} >
                 X
             </div>
             }
             <div className={"img-container"}>
-            { !props.isForFavourites && 
-                <div className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` } onClick={() => {
-                props.updateBooks(); // a lo mejor para meter un toaster
-                updateBooks({
-                    variables: {
-                    id: props.id, 
-                    isFavourite: !props.isFavourite
-                } 
-                })
-                }}>
-                {Heart}
+            {!props.isForFavourites && 
+                <div 
+                    className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` } 
+                    onClick={() => {
+                        props.updateBooks(); // a lo mejor para meter un toaster
+                        updateBooks({
+                            variables: {
+                            id: props.id, 
+                            isFavourite: !props.isFavourite
+                            } 
+                        })
+                    }}>
+                    {Heart}
                 </div>
             }
                 <CardImg src={props.image} alt="Card image cap" />
@@ -66,15 +68,3 @@ const Card = (props) => {
   }
 
   export default ShoppingCard;
-
-
-    
-
-// {/* <Container>
-//                   <Row>
-//                       <Col className={"border"}>
-//                             <img style={{width: props.width}} src={props.image} />
-//                       </Col>
-//                       <Col>HOLA</Col>
-//                   </Row>
-//               </Container> */}
