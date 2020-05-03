@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import '../Carousel/Carousel.scss';
 import './Favourites.scss';
 import { Container, Row, Col } from 'reactstrap';
 import ShoppingCard from '../ShoppingCard';
@@ -14,10 +13,9 @@ const Favourites = (props) => {
   console.log('booksData', booksData);
 
       return (
-        <Container className="favourites-container">
+        <Container>
           <p className="main-style">{props.title}</p>
-          
-           <Row xs="1" sm="2" md="3">
+          <Row xs="1" sm="2" md="2" lg="3" xl="4">
               {booksData.data.getBooks.map((book, id) =>  
                 book.isFavourite && 
                 <Col>
@@ -33,7 +31,7 @@ const Favourites = (props) => {
                     price={book.price} 
                     isForFavourites= {true}
                   />
-                  </Col>
+                </Col>
               )}
             </Row>
         </Container>
