@@ -6,17 +6,8 @@ export const UPDATE_BOOKS = gql`
         id: $id,
         isFavourite: $isFavourite
         }) {
-            title
-            description
             id
-            author
-            price
-            score
-            count
-            pages
-            image
             isFavourite
-            type
         }
     }
 `

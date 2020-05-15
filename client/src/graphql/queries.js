@@ -15,5 +15,7 @@ query getBooks {
       isFavourite
       type
     }
+
+    cachedBooks @client
   }
 ` 

@@ -7,6 +7,7 @@ import {
 
 import {Heart} from '../../images/icons/index.js';
 import {UPDATE_BOOKS} from '../../graphql/mutations';
+import {GET_BOOKS} from '../../graphql/queries.js';
 
 // onCompleted usalo per creare un toaster quando l'operazione di mtation è completa:
 // onCompleted
@@ -15,7 +16,14 @@ import {UPDATE_BOOKS} from '../../graphql/mutations';
 
 const ShoppingCard = (props) => {
   const [updateBooks] = useMutation(
-      UPDATE_BOOKS
+      UPDATE_BOOKS,
+      {
+          refetchQueries: () => [
+            {
+                query: GET_BOOKS
+              }
+          ]
+      }, // para actualizar la cache instantaneamente
     );
 
       return (
@@ -28,7 +36,7 @@ const ShoppingCard = (props) => {
                     variables: {
                         id: props.id, 
                         isFavourite: !props.isFavourite
-                    } 
+                    }
                 })
             }} >
                 X

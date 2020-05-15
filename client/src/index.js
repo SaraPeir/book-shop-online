@@ -9,10 +9,15 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
     uri: 'http://localhost:4000/graphql'
-  })
+  }),
+  resolvers: { // resolver para poder hacer fetch desde la cache
+    Query: {
+      cachedBooks: (cache) => {
+        return cache.getBooks
+      }
+    }
+  }
 });
-
-console.log('client', client);
 
 ReactDOM.render(
   <ApolloProvider client={client}>
