@@ -45,7 +45,8 @@ const ShoppingCard = (props) => {
             <div className={"img-container"}>
             {!props.isForFavourites && 
                 <div 
-                    className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` } 
+                    className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` }
+                    id={"heart-button"} 
                     onClick={() => {
                         props.updateBooks(); // a lo mejor para meter un toaster
                         updateBooks({
