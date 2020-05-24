@@ -30,6 +30,7 @@ const ShoppingCard = (props) => {
         <Card className={props.cardStyle}>
             {props.isForFavourites && 
             <div className="close-button-icon-container"
+            id={"close-button"} 
             onClick={() => {
                 props.updateBooks(); // a lo mejor para meter un toaster
                 updateBooks({

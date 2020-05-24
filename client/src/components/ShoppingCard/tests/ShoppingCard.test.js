@@ -1,82 +1,107 @@
 import React from 'react';
 import ShoppingCard from '../ShoppingCard';
-import {UPDATE_BOOKS} from '../../../graphql/mutations';
-import {GET_BOOKS} from '../../../graphql/queries.js';
-import { createMockClient } from 'mock-apollo-client';
-import { ApolloProvider  } from '@apollo/client';
+import { MockedProvider } from '@apollo/client/testing';
 import TestRenderer from 'react-test-renderer';
 
-it ('should ...', () => {
-  const mockClient = createMockClient();
+// npm test -- --coverage --watchAll=false para el report
 
-  const book = { 
-    title: 'TITLE',
-    description: 'DESCRIPTION',
-    id: '1',
-    author: 'AUTHOR',
-    price: 'PRICE',
-    score: 'SCORE',
-    count: 'COUNT',
-    pages: 'PAGES',
-    image: 'IMAGE',
-    isFavourite: false,
-    type: 'TYPE'
- };
-
- const updatedBook = { 
-  id: '1',
-  isFavourite: true,
-};
-
-  const booksData = {
-    cachedBooks: [
-      book
-    ],
-    getBooks: [ 
-      book
-    ]
-  }
-
-    mockClient.setRequestHandler(
-      UPDATE_BOOKS,
-      jest.fn().mockImplementation(() => Promise.resolve({ data: updatedBook })))
-
-      mockClient.setRequestHandler(
-        GET_BOOKS,
-        jest.fn().mockImplementation(() => Promise.resolve({ data: booksData })))
-
-
-const component = TestRenderer.create(
-  <ApolloProvider client={mockClient}>
-    <ShoppingCard 
-      isForFavourites={false} 
-      isFavourite={book.isFavourite} 
-      id={book.id} 
-      updateBooks={jest.fn()}
-    />
-  </ApolloProvider>
-);
-
-const heartButton = component.root.findByProps({id: "heart-button"});
-
-TestRenderer.act(() => {
+describe('if isForFavourites is set to FALSE', () => {
+  it ('should execute onClick prop when heart button is clicked', () => {
+    let isFavourite = false;
+    const mockedFn = jest.fn();
   
-  const button = (
-    <heartButton 
-      onClick={() => book.isFavourite = true}
-    />);
-
-  button.props.onClick()
-
-    component.update(
-      <ApolloProvider client={mockClient}>
-        <ShoppingCard isForFavourites={false} isFavourite={book.isFavourite} id={'1'} updateBooks={jest.fn()} />
-      </ApolloProvider>
+    const component = TestRenderer.create(
+      <MockedProvider mocks={[]}>
+        <ShoppingCard 
+          isForFavourites={false} 
+          isFavourite 
+          id={'1'} 
+          updateBooks={mockedFn}
+        />
+      </MockedProvider>
     );
-});
-console.log('PROPS', heartButton.props.className)
-
-expect(heartButton.props.className).toBe('filled-icon icon-container');
+  
+    TestRenderer.act(() => {
+      const heartButton = component.root.findByProps({id: "heart-button"});
+      heartButton.props.onClick();
+  
+      component.update(
+        <MockedProvider mocks={[]}>
+          <ShoppingCard isForFavourites={false} isFavourite = {isFavourite} id={'1'} updateBooks={mockedFn} />
+        </MockedProvider>
+      );
+    });
+  
+    expect(mockedFn).toHaveBeenCalled()
   });
+  
+  it ('should set iseFavourite = TRUE if heart button is clicked', () => {
+    let isFavourite = false;
+    const mockedFn = jest.fn();
+  
+    const component = TestRenderer.create(
+      <MockedProvider mocks={[]}>
+        <ShoppingCard 
+          isForFavourites={false} 
+          isFavourite 
+          id={'1'} 
+          updateBooks={mockedFn}
+        />
+      </MockedProvider>
+    );
 
+    const heartButton = component.root.findByProps({id: "heart-button"});
+  
+    TestRenderer.act(() => {
+      const button = (
+        <heartButton 
+          onClick={() => {
+            mockedFn
+            isFavourite = true
+          } }
+        />);
+    
+      button.props.onClick()
+  
+      component.update(
+        <MockedProvider mocks={[]}>
+          <ShoppingCard isForFavourites={false} isFavourite = {isFavourite} id={'1'} updateBooks={mockedFn} />
+        </MockedProvider>
+      );
+    });
+  
+    expect(heartButton.props.className).toBe('filled-icon icon-container');
+  });
+});
 
+describe('if isForFavourites is set to TRUE', () => {
+  it ('should execute onClick prop when close button is clicked', () => {
+      let isFavourite = false;
+      const mockedFn = jest.fn();
+  
+      const component = TestRenderer.create(
+        <MockedProvider mocks={[]}>
+          <ShoppingCard 
+            isForFavourites={true} 
+            isFavourite 
+            id={'1'} 
+            updateBooks={mockedFn}
+          />
+        </MockedProvider>
+      );
+  
+      TestRenderer.act(() => {
+        const closeButton = component.root.findByProps({id: "close-button"});
+        
+        closeButton.props.onClick();
+    
+        component.update(
+          <MockedProvider mocks={[]}>
+            <ShoppingCard isForFavourites={false} isFavourite = {isFavourite} id={'1'} updateBooks={mockedFn} />
+          </MockedProvider>
+        );
+      });
+  
+      expect(mockedFn).toHaveBeenCalled()
+    });
+});
