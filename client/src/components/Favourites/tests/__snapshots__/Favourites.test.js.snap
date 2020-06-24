@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should not render cards if there are no data 1`] = `
+<div>
+  Non hai selezionato nessun elemento come favorito
+</div>
+`;
+
+exports[`Should render correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <p
+      class="main-style"
+    >
+      I tuoi preferiti
+    </p>
+    <div
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
+    >
+      <div
+        class="col"
+      >
+        <div
+          class="card-style card"
+        >
+          <div
+            class="close-button-icon-container"
+            data-testid="close-button"
+          >
+            X
+          </div>
+          <div
+            class="img-container"
+          >
+            <img
+              alt="Card image cap"
+              class="card-img"
+              src="IMG_1"
+            />
+          </div>
+          <div
+            class="card-body"
+          >
+            <div
+              class="card-title"
+            >
+              TITLE_1
+            </div>
+            <div
+              class="card-subtitle"
+            >
+              AUTHOR_1
+            </div>
+            <div
+              class="price-container"
+            >
+              <p
+                class="card-text"
+              >
+                € 18.00
+              </p>
+            </div>
+            <div
+              class="btn-container"
+            >
+              <button
+                class="btn btn-secondary"
+              >
+                Dettagli
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col"
+      >
+        <div
+          class="card-style card"
+        >
+          <div
+            class="close-button-icon-container"
+            data-testid="close-button"
+          >
+            X
+          </div>
+          <div
+            class="img-container"
+          >
+            <img
+              alt="Card image cap"
+              class="card-img"
+              src="IMG_2"
+            />
+          </div>
+          <div
+            class="card-body"
+          >
+            <div
+              class="card-title"
+            >
+              TITLE_2
+            </div>
+            <div
+              class="card-subtitle"
+            >
+              AUTHOR_2
+            </div>
+            <div
+              class="price-container"
+            >
+              <p
+                class="card-text"
+              >
+                € 18.00
+              </p>
+            </div>
+            <div
+              class="btn-container"
+            >
+              <button
+                class="btn btn-secondary"
+              >
+                Dettagli
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col"
+      >
+        <div
+          class="card-style card"
+        >
+          <div
+            class="close-button-icon-container"
+            data-testid="close-button"
+          >
+            X
+          </div>
+          <div
+            class="img-container"
+          >
+            <img
+              alt="Card image cap"
+              class="card-img"
+              src="IMG_3"
+            />
+          </div>
+          <div
+            class="card-body"
+          >
+            <div
+              class="card-title"
+            >
+              TITLE_3
+            </div>
+            <div
+              class="card-subtitle"
+            >
+              AUTHOR_3
+            </div>
+            <div
+              class="price-container"
+            >
+              <p
+                class="card-text"
+              >
+                € 18.00
+              </p>
+            </div>
+            <div
+              class="btn-container"
+            >
+              <button
+                class="btn btn-secondary"
+              >
+                Dettagli
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

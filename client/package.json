@@ -7,7 +7,6 @@
     "@apollo/react-testing": "^3.1.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "graphql": "^15.0.0",
     "node-sass": "^4.13.1",
@@ -25,7 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "scss": "node-sass --watch assets/scss -o assets/css",
-    "test": "react-scripts test", 
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/user-event": "^7.2.1",
     "mock-apollo-client": "^0.4.0"
   }
 }

@@ -5,13 +5,9 @@ import ShoppingCard from '../ShoppingCard';
 
 const Favourites = (props) => {
   const getData = (cachedData) => {
-    try {
-      return cachedData;
-      }
-      
-    catch {
-      return [];
-    }
+    if(cachedData) return cachedData
+    return [] 
+
   }
 
   const booksData = getData(props.cachedData);
@@ -28,9 +24,8 @@ const Favourites = (props) => {
           <Row xs="1" sm="2" md="2" lg="3" xl="4">
               {favourites.map((book, id) =>  
                 book.isFavourite && 
-                <Col>
+                <Col key={id}>
                   <ShoppingCard 
-                    key={id} 
                     cardStyle={'card-style'}
                     updateBooks={() => console.log('updateBooks')} 
                     isFavourite={book.isFavourite} 

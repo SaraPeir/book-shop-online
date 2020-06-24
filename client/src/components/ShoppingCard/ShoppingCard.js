@@ -30,7 +30,7 @@ const ShoppingCard = (props) => {
         <Card className={props.cardStyle}>
             {props.isForFavourites && 
             <div className="close-button-icon-container"
-            id={"close-button"} 
+            data-testid={"close-button"} 
             onClick={() => {
                 props.updateBooks(); // a lo mejor para meter un toaster
                 updateBooks({
@@ -47,6 +47,7 @@ const ShoppingCard = (props) => {
             {!props.isForFavourites && 
                 <div 
                     className={`${props.isFavourite ? "filled-icon icon-container" : "icon-container"}` }
+                    data-testid={"heart-button"} 
                     id={"heart-button"} 
                     onClick={() => {
                         props.updateBooks(); // a lo mejor para meter un toaster
