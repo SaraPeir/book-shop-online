@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { CarouselProvider, ButtonBack, ButtonNext, Slider } from 'pure-react-carousel';
 import './Carousel.scss';
 import CarouselCard from '../CarouselCard';

@@ -3,6 +3,7 @@ import './index.scss';
 import {GET_BOOKS} from './graphql/queries.js';
 import { useQuery } from '@apollo/client';
 import Carousel from './components/Carousel';
+import Items from './components/Items';
 import Favourites from './components/Favourites';
 import CarouselContext from './components/CarouselContext';
 import {
@@ -11,6 +12,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ItemsState from "./context/Items/ItemsState";
 
 const App = () => {
   const { loading, error, data } = useQuery(GET_BOOKS, {
@@ -20,18 +22,9 @@ const App = () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  const getValidatedData = () => {
-    try {
-      return data.cachedBooks
-    }
-    catch {
-      return []
-    }
-  }
+  const validatedData = data.cachedBooks || [];
 
-  const validatedData = getValidatedData();
-
-  if(!validatedData.length) return null;
+  if(!validatedData.length) return 'Error en cargar los datos';
 
   return (
     <div className="App">
@@ -40,14 +33,9 @@ const App = () => {
           <button><Link to="/">Home</Link></button>
           <button><Link to="/favourites">Favourites</Link></button>
           <Switch>
-            <CarouselContext.Provider value={{data}}>
-              <Route path="/favourites">
-                <Favourites title={'I tuoi preferiti'} cachedData = {validatedData} />
-              </Route>
-              <Route exact path="/">
-                <Carousel title={'I più apprezzati del momento'} cachedData = {validatedData} />
-              </Route>
-            </CarouselContext.Provider>
+            <ItemsState>
+              <Items /> 
+            </ItemsState>
           </Switch>
         </div>
       </Router>

@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render correctly when isForFavourites 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <div
+      class="img-container"
+    >
+      <div
+        class="icon-container"
+        data-testid="heart-button"
+        id="heart-button"
+      >
+        <svg
+          height="24"
+          stroke="red"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"
+          />
+        </svg>
+      </div>
+      <img
+        alt="Card image cap"
+        class="card-img"
+        src="IMG_1"
+      />
+    </div>
+    <div
+      class="card-body"
+    >
+      <div
+        class="card-title"
+      >
+        TITLE_1
+      </div>
+      <div
+        class="card-subtitle"
+      >
+        AUTHOR_1
+      </div>
+      <div
+        class="price-container"
+      >
+        <p
+          class="card-text"
+        >
+          € 18.00
+        </p>
+      </div>
+      <div
+        class="btn-container"
+      >
+        <button
+          class="btn btn-secondary"
+        >
+          Dettagli
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should render correctly when isForFavourites is true 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <div
+      class="close-button-icon-container"
+      data-testid="close-button"
+    >
+      X
+    </div>
+    <div
+      class="img-container"
+    >
+      <img
+        alt="Card image cap"
+        class="card-img"
+        src="IMG_1"
+      />
+    </div>
+    <div
+      class="card-body"
+    >
+      <div
+        class="card-title"
+      >
+        TITLE_1
+      </div>
+      <div
+        class="card-subtitle"
+      >
+        AUTHOR_1
+      </div>
+      <div
+        class="price-container"
+      >
+        <p
+          class="card-text"
+        >
+          € 18.00
+        </p>
+      </div>
+      <div
+        class="btn-container"
+      >
+        <button
+          class="btn btn-secondary"
+        >
+          Dettagli
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

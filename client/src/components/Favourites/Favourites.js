@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import './Favourites.scss';
 import { Container, Row, Col } from 'reactstrap';
 import ShoppingCard from '../ShoppingCard';
